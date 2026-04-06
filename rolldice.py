@@ -18,4 +18,25 @@
 # How many dice to roll? 20
 # How many sides? 20
 # Here are the results: [18, 19, 6, 8, 13, 6, 6, 6, 18, 12, 20, 10, 14, 8, 14, 17, 12, 15, 20, 17]
+import random 
+results = []
+def rolldice(side, amount):
+    if side < 2 or amount < 1:
+        return False
+    else:
+        count = 0
+        while count < amount: 
+            theroll = random.randint(1, side)
+            results.append(theroll)
+            count += 1
+        return True
 
+sides = int(input("How many sides? "))
+dice = int(input("How many dice? "))
+final = rolldice(sides, dice)
+
+if final == True:
+    print(f"Here are the results {results}")
+    results.clear()
+else:
+    print("Error: Sides must be greater than 1 and dice count greater than 0.")
